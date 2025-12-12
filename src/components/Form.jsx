@@ -18,6 +18,17 @@ const Form = ({ onUserCreated, children }) => {
     }));
   };
 
+  const handleDelete = async (id) => {
+    const isConfirm = confirm("Do you want to delete this?");
+    if (!isConfirm) return;
+    
+    
+    await axios.delete(`https://67eca027aa794fb3222e43e2.mockapi.io/members/${id}`);
+    if (onUserCreated) {
+    onUserCreated();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -42,7 +53,8 @@ const Form = ({ onUserCreated, children }) => {
     formData,
     loading,
     handleChange,
-    handleSubmit
+    handleSubmit,
+    handleDelete
   });
 }
 export default Form;

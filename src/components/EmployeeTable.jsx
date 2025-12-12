@@ -1,6 +1,7 @@
 import React from "react";
+import Form from "./form";
 
-const EmployeeTable = ({employees, isAdmin}) => {
+const EmployeeTable = ({employees, isAdmin, onDelete}) => {
 
 
 
@@ -24,8 +25,11 @@ const EmployeeTable = ({employees, isAdmin}) => {
             <td className="border border-gray-300 px-30 py-4 ">{item.lastname}</td>
             <td className="border border-gray-300 px-30 py-4 ">{item.position}</td>
             {(isAdmin &&
-            <td className="border border-gray-300 px-30 py-4 text-red-600 font-bold">
-              Delete
+            <td className="border border-gray-300 px-30 py-4 font-semibold">
+                <button
+                onClick={() => onDelete(item.id)}
+                className=" text-white rounded-xl bg-red-400 cursor-pointer px-4 py-2 ">Delete</button>
+              
             </td>)}
           </tr>
           

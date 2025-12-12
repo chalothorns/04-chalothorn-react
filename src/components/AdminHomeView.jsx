@@ -7,8 +7,8 @@ const AdminHomeView = ({employees, isAdmin, onUserCreated}) => {
     <div className="p-25 ">
 
       <Form onUserCreated={onUserCreated}>
-        {({ formData, loading, handleChange, handleSubmit }) => (
-
+        {({ formData, loading, handleChange, handleSubmit, handleDelete }) => (
+<>
     <form onSubmit={handleSubmit}>
       <h2 className="font-bold text-black text-2xl mb-5">Create User Here</h2>
       <div className="flex flex-row justify-between pb-12 ">
@@ -50,10 +50,15 @@ const AdminHomeView = ({employees, isAdmin, onUserCreated}) => {
         </button>
       </div>
 </form>
+
+      <EmployeeTable 
+      employees={employees} 
+      isAdmin={isAdmin} 
+      onDelete={handleDelete}/>
+</>
           )}
       </Form>
 
-      <EmployeeTable employees={employees} isAdmin={isAdmin}/>
     </div>
   );
 };
