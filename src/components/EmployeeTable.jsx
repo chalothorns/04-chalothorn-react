@@ -1,6 +1,6 @@
 import React from "react";
 
-const EmployeeTable = ({employees}) => {
+const EmployeeTable = ({employees, isAdmin}) => {
 
 
 

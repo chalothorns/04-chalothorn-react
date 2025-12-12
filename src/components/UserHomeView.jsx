@@ -2,11 +2,11 @@ import React from 'react'
 import EmployeeTable from './EmployeeTable'
 
 
-const UserHomeView = () => {
+const UserHomeView = ({employees, isAdmin}) => {
   return (
     <div className="p-25">
 
-            <EmployeeTable isAdmin={false}/>
+            <EmployeeTable employees={employees} isAdmin={isAdmin}/>
 
     </div>
   )

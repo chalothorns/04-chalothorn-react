@@ -1,38 +1,59 @@
-import EmployeeTable from "./EmployeeTable";
 
-const AdminHomeView = () => {
+import EmployeeTable from "./EmployeeTable";
+import Form from "./form";
+
+const AdminHomeView = ({employees, isAdmin, onUserCreated}) => {
   return (
     <div className="p-25 ">
-      <h2 className="font-bold text-black text-2xl mb-5">Create User Here</h2>
 
+      <Form onUserCreated={onUserCreated}>
+        {({ formData, loading, handleChange, handleSubmit }) => (
+
+    <form onSubmit={handleSubmit}>
+      <h2 className="font-bold text-black text-2xl mb-5">Create User Here</h2>
       <div className="flex flex-row justify-between pb-12 ">
+
+
         <input
-          id="first-name"
           type="text"
-          name="first-name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
           placeholder="Name"
+          disabled={loading}
           className="w-80 rounded-md border border-none bg-white px-3 py-1.5 text-base  focus:outline-indigo-500 placeholder:text-gray-400"
         />
         <input
-          id="last-name"
           type="text"
-          name="last-name"
+          name="lastname"
+          value={formData.lastname}
+          onChange={handleChange}
           placeholder="Last Name"
+          disabled={loading}
           className="w-80 rounded-md border border-none bg-white px-3 py-1.5 text-base focus:outline-indigo-500 placeholder:text-gray-400"
         />
         <input
-          id="position"
           type="text"
           name="position"
+          value={formData.position}
+          onChange={handleChange}
           placeholder="Position"
+          disabled={loading}
           className="w-80 rounded-md border border-none bg-white px-3 py-1.5 text-base  focus:outline-indigo-500 placeholder:text-gray-400"
         />
 
-        <button className="bg-indigo-500 text-white rounded-xl  cursor-pointer px-8 py-4">
+        <button 
+        type="submit"
+        disabled={loading}
+        className="bg-indigo-500 text-white rounded-xl  cursor-pointer px-8 py-4">
           Save
         </button>
       </div>
-      <EmployeeTable />
+</form>
+          )}
+      </Form>
+
+      <EmployeeTable employees={employees} isAdmin={isAdmin}/>
     </div>
   );
 };
