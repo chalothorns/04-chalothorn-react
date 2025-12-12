@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+@layer base { /* เรียกใช้คลาสที่ Tailwind สร้างขึ้นใน @layer base */
+    body{
+        background-color: gainsboro;
+    }
+}
