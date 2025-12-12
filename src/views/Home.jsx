@@ -6,6 +6,46 @@ import AdminHomeView from "../components/AdminHomeView";
 export default function Home(){
 
     const [view, setView] = useState("");
+
+//     function FetchAPI() {const [employees, setEmployees] = useState([]);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState("null");
+
+//     useEffect(() =>{
+
+//         const fetchEmployees = async() => {
+//             try {
+//                 const response = await fetch("https://67eca027aa794fb3222e43e2.mockapi.io/members");
+
+//                 if(!response.ok) {
+//                     throw new Error(`HTTP error! status: ${response.status}`)
+//                 }
+
+//                 const result = await response.json()
+//                 setEmployees(result)
+//                 console.log(employees)
+
+//             } catch (error) {
+//                 setError(error);
+//                 console.log(error);
+                
+//             } finally{
+//                 setLoading(false);
+//             }
+//         };
+//         fetchEmployees();
+//     },[]);
+
+//     if(loading) {
+//         return <div>Loading data...</div>
+//     }
+
+//     if(error) {
+//         <div>Error:{error.message}</div>;
+//     }
+// } 
+
+
     return(
         <div className="flex flex-col justify-center items-center w-[70%] mx-auto">
         <div>
@@ -38,4 +78,5 @@ export default function Home(){
       {view === "admin" && <AdminHomeView />}
         </div>
     )
+    
 }
