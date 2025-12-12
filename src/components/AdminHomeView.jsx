@@ -1,6 +1,6 @@
 
 import EmployeeTable from "./EmployeeTable";
-import Form from "./form";
+import Form from "./Form";
 
 const AdminHomeView = ({employees, isAdmin, onUserCreated}) => {
   return (
